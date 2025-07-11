@@ -10,7 +10,7 @@ app.use(express.json());
 
 // Sample route
 app.get("/", (_, res) => {
-  res.send("✅ API is running...");
+  res.send("API is running...");
 });
 
 export default app;
