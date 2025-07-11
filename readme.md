@@ -34,23 +34,45 @@ A scalable, modular backend API built using **Node.js**, **Express**, **TypeScri
 
 ## 📁 Folder Structure
 
-```
+## 📁 Folder Structure
+
+```bash
 notebook-backend/
 ├── src/
-│   ├── app.ts              # Express app config
-│   ├── server.ts           # Main server entry point
-│   ├── config/
-│   │   └── db.ts           # MongoDB connection
-│   ├── models/             # Mongoose schemas
-│   ├── controllers/        # Route logic handlers
-│   ├── routes/             # Route definitions
-│   ├── middlewares/        # Auth, error handlers
-│   ├── utils/              # Utility functions (e.g., logger)
-│   └── types/              # Custom TS types
-├── .env
-├── tsconfig.json
-└── package.json
+│   ├── app.ts                   # Express app configuration
+│   ├── server.ts                # Main server entry point
+│   ├── config/                  # App-level config (DB, Cloudinary, etc.)
+│   │   └── db.ts                # MongoDB connection logic
+│   ├── modules/                 # Feature-based module folders
+│   │   ├── user/
+│   │   │   ├── user.controller.ts
+│   │   │   ├── user.routes.ts
+│   │   │   ├── user.model.ts
+│   │   │   ├── user.service.ts
+│   │   │   └── user.validator.ts
+│   │   ├── note/
+│   │   │   ├── note.controller.ts
+│   │   │   ├── note.routes.ts
+│   │   │   ├── note.model.ts
+│   │   │   ├── note.service.ts
+│   │   │   └── note.validator.ts
+│   │   ├── auth/
+│   │   │   ├── auth.controller.ts
+│   │   │   ├── auth.routes.ts
+│   │   │   ├── auth.service.ts
+│   │   │   └── auth.middleware.ts
+│   │   └── category/
+│   │       ├── category.controller.ts
+│   │       ├── category.routes.ts
+│   │       └── category.model.ts
+│   ├── middlewares/             # Common middlewares (auth, errorHandler, etc.)
+│   ├── utils/                   # Utility functions (logger, uploader, etc.)
+│   ├── types/                   # Global & shared TypeScript types
+├── .env                         # Environment variables
+├── tsconfig.json                # TypeScript compiler config
+└── package.json                 # Project metadata and dependencies
 ```
+
 
 ---
 

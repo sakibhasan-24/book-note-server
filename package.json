@@ -2,16 +2,16 @@
   "name": "notebook-server",
   "version": "1.0.0",
   "main": "index.js",
- "scripts": {
-  "dev": "ts-node-dev --respawn src/server.ts",
-  "build": "tsc"
-}
-,
+  "scripts": {
+    "dev": "ts-node-dev --respawn src/server.ts",
+    "build": "tsc"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "cloudinary": "^2.7.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.0",
