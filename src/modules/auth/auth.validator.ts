@@ -1,6 +1,7 @@
 
 import { NextFunction, Request, Response } from 'express';
 import { z } from 'zod';
+import { AppError } from '../../error/AppError';
 
 export const registerSchema = z.object({
   name: z.string().min(2).max(50),
@@ -13,6 +14,7 @@ export const validateRegister = (req:Request, res:Response, next:NextFunction) =
     registerSchema.parse(req.body);
     next();
   } catch (error:any) {
-    return res.status(400).json({ error: error?.errors });
+      throw new AppError('Invalid request data', 422);
+
   }
 };
