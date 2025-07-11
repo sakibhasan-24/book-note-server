@@ -19,7 +19,7 @@ export const globalErrorHandler = (
     message = 'Validation failed';
     console.log(err);
     
-    errors = err.errors &&  err.errors.map(issue => ({
+    errors = err.issues &&  err.issues.map(issue => ({
       field: issue.path.join('.'),
       message: issue.message,
     })) ;
