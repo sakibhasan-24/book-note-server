@@ -9,7 +9,6 @@ dotenv.config();
 console.log(process.env.DBURL!)
 beforeAll(async () => {
   await mongoose.connect(process.env.DBURL!, {
-    // options
   });
 });
 
@@ -24,7 +23,7 @@ describe('POST /api/register', () => {
       email:uniqueEmail, 
       password: 'secret123',
     });
- console.log('Response body:', res.body);
+//  console.log('Response body:', res.body);
     expect(res.statusCode).toBe(201);
     expect(res.body.user).toHaveProperty('email', uniqueEmail.toLowerCase());
     expect(res.body.status).toBe(true);

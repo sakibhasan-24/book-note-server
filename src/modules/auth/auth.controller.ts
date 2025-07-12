@@ -21,6 +21,6 @@ export class AuthController {
         maxAge: 1000 * 60 * 60 * 24 * 7, 
       });
 
-       res.status(201).json({ user: user,status:true,message:"User Login Successfully" });
+       res.status(200).json({ user: user,status:true,message:"User Login Successfully",token });
   }
 }
