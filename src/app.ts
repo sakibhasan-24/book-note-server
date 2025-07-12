@@ -3,10 +3,13 @@ import express from "express";
 import cors from "cors";
 import { globalErrorHandler } from "./middlewares/globalErrorHandler";
 import { authRoutes } from "./modules/auth/auth.routes";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
 // Middlewares
+app.use(cookieParser())
+
 app.use(cors());
 app.use(express.json());
 

@@ -23,3 +23,13 @@ export const validateRegister = (req:Request, res:Response, next:NextFunction) =
 
   }
 };
+
+export const validateLogin=(req:Request,res:Response,next:NextFunction)=>{
+  try {
+    console.log(req.body)
+    loginSchema.parse(req.body)
+    next();
+  } catch (error:any) {
+    next(error)
+  }
+}

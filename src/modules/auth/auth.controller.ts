@@ -11,4 +11,16 @@ export class AuthController {
       const userResponse = { id: user._id, name: user.name, email: user.email };
       res.status(201).json({ user: userResponse,status:true,message:"User Registered Successfully" });
   }
+  static async login(req:Request,res:Response){
+    const{token,user}=await userService.loginUser(req.body);
+    console.log(user,token);
+    res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        maxAge: 1000 * 60 * 60 * 24 * 7, 
+      });
+
+       res.status(201).json({ user: user,status:true,message:"User Login Successfully" });
+  }
 }
