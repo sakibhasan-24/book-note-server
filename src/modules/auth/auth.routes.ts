@@ -10,5 +10,6 @@ const router = express.Router();
 // Request ─► Route ─► Validator ─► Controller ─► Service ─► Repository Interface ─► Mongoose Model ─► MongoDB
 
 router.post('/register', validateRegister, asyncHandler(AuthController.register));
+// router.post('/login',)
 
 export const authRoutes=router;
