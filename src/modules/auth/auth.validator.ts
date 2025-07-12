@@ -1,7 +1,6 @@
 
 import { NextFunction, Request, Response } from 'express';
 import { email, z } from 'zod';
-import { AppError } from '../../error/AppError';
 
 export const registerSchema = z.object({
   name: z.string().min(2).max(50),
