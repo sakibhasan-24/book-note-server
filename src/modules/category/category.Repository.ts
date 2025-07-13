@@ -11,12 +11,15 @@ export class CategoryRepository implements ICategoryRepository {
   async findById(id: string) {
     return CategoryModel.findById(id);
   }
-
+    async findByName(name:String){
+      return CategoryModel.findOne({name});
+     }
   async findAll(userId: string, search = '', page = 1, limit = 10) {
     const query = {
       user: userId,
       name: { $regex: search, $options: 'i' }
     };
+    
 
     const categories = await CategoryModel.find(query)
       .skip((page - 1) * limit)

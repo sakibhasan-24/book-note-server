@@ -7,7 +7,7 @@ const categoryService=new CategoryService(categoryRepository);
 
 export class CategoryController{
     static async createCategory(req:Request,res:Response){
-        console.log((req as any).user)
+        // console.log((req as any).user)
         const userId =(req as any).user!.userId;
         const category = await categoryService.createCategory({ ...req.body, user: userId });
         res.status(201).json({ status: true, category,message:"Category Created Successfully" });
@@ -19,11 +19,14 @@ export class CategoryController{
         categoryService.getCategories((req as any).user!.userId ,search.toString(),Number(page),Number(limit))
         res.status(200).json({message:"Get All categories",status:true,category:result})
     }
+    static async getCategoryById(req:Request,res:Response){
+        const category=await categoryService.getCategoryById(req.params.id);
+        res.status(200).json({message:"successfully found",status:true,category})
+    }
     static async updateCategories(req:Request,res:Response){
             const updated = await 
             categoryService.updateCategory(req.params.id,(req as any).user!.userId, req.body);
             res.status(200).json({message:"Update Successfully",status:true,category:updated})
-
     }
 
     static async deleteCategory(req:Request,res:Response){

@@ -6,8 +6,11 @@ export class CategoryService {
   constructor(private categoryRepo: ICategoryRepository) {}
 
   async createCategory(data: Partial<ICategory>) {
-    // console.log(data)
-    
+    const {name}=data;
+    const alreadyExist=await this.categoryRepo.findByName(name?.toUpperCase() as string);
+    if(alreadyExist && alreadyExist?.name.toLowerCase()){
+       throw new AppError("category Already Exists",400);
+    }
     return this.categoryRepo.create(data);
   }
 

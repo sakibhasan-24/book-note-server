@@ -17,7 +17,7 @@ export const globalErrorHandler = (
   if (err instanceof ZodError) {
     statusCode = 422;
     message = 'Validation failed';
-    console.log(err);
+    console.log(err.issues);
     
     errors = err.issues &&  err.issues.map(issue => ({
       field: issue.path.join('.'),

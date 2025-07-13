@@ -5,6 +5,7 @@ import { globalErrorHandler } from "./middlewares/globalErrorHandler";
 import { authRoutes } from "./modules/auth/auth.routes";
 import cookieParser from "cookie-parser";
 import { categoryRouter } from "./modules/category/category.routes";
+import { noteRouter } from "./modules/note/note.routes";
 
 const app = express();
 
@@ -22,5 +23,6 @@ app.get("/", (_, res) => {
 
 app.use('/api',authRoutes);
 app.use('/api/category',categoryRouter)
+app.use("/api/note",noteRouter)
 app.use(globalErrorHandler)
 export default app;

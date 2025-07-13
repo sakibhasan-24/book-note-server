@@ -1,0 +1,13 @@
+import { Router } from "express";
+import { NoteController } from "./note.controller";
+import { authenticate } from "../../middlewares/verifyToken";
+import { validateCategoryUpodate, validateCreateCategory } from "../category/category.validator";
+import { asyncHandler } from "../../middlewares/asyncHandler";
+import { validateCreateNote } from "./note.validator";
+const router = Router();
+router.post("/", authenticate, validateCreateNote, asyncHandler(NoteController.createNote));
+router.get("/", authenticate, asyncHandler( NoteController.getNotes));
+router.get("/:id", authenticate, asyncHandler( NoteController.getNoteById));
+router.put("/:id", authenticate,validateCategoryUpodate,asyncHandler( NoteController.updateNote));
+router.delete("/:id", authenticate,asyncHandler( NoteController.deleteNote));
+export const noteRouter= router;

@@ -9,5 +9,10 @@ const CategorySchema = new Schema<ICategory>(
   },
   { timestamps: true }
 );
+CategorySchema.pre('save', function (next) {
+  this.name = this.name.toUpperCase();
+  next();
+});
 
+CategorySchema.index({ name: 1, user: 1 }, { unique: true });
 export const CategoryModel = mongoose.model<ICategory>('Category', CategorySchema);

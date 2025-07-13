@@ -9,6 +9,7 @@ const router = express.Router();
 
 router.post('/', authenticate, validateCreateCategory,asyncHandler(CategoryController.createCategory));
 router.get('/', authenticate, asyncHandler(CategoryController.getCategories));
+router.get("/:id",authenticate,asyncHandler(CategoryController.getCategoryById))
 router.put('/:id', authenticate, validateCategoryUpodate,asyncHandler(CategoryController.updateCategories));
 router.delete('/:id', authenticate, asyncHandler(CategoryController.deleteCategory));
 
