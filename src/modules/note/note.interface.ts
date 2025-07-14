@@ -5,6 +5,7 @@ export interface INotes extends Document {
   category?: Types.ObjectId;
   title: string;
   content: string;
+  categoryName?:string;
   isPinned?: boolean;
   type?: "note" | "blog" | "doc";
   createdAt?: Date;

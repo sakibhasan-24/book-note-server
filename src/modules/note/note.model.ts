@@ -11,6 +11,9 @@ const noteSchema = new Schema<INotes>(
       type: Schema.Types.ObjectId,
       ref: "Category",
     },
+    categoryName:{
+      type:String,
+    },
     title: {
       type: String,
       required: true,

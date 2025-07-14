@@ -6,6 +6,7 @@ export const createNoteSchema = z.object({
   title: z.string().min(1, 'Title is required'),
   content: z.string().min(1, 'Content is required'),
   category: z.string().optional(),
+  categoryName:z.string().optional(),
   isPinned: z.boolean().optional(),
   type: z.enum(['note', 'blog', 'doc']).optional()
 });

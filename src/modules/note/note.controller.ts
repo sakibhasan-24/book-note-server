@@ -20,6 +20,7 @@ export class NoteController {
         category: categoryId,
         isPinned: isPinned ?? false,
         type: type ?? 'note',
+        categoryName:categoryName?.name,
       });
 
       return res.status(201).json({
